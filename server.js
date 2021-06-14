@@ -60,20 +60,16 @@ router.post('/',
     
 });
 
-router.get('/', function(req, res){
+// Se incluye el modulo path para poder usar el directorio raiz del proyecto
+const path = require('path'); 
 
-    res.render("index");  
-    
-    res.status(200);
-    
+router.get('/', function(req, res){    
+    // Se entrega como respuesta al GET un HTML    
+    // __dirname es una constante que contiene la ruta raiz del proyecto
+    res.status(200).sendFile(path.join(__dirname+"/crearPersonas.html"));    
 });
 
 
 app.listen(3000);
 
 console.log("La aplicacion esta escuchando en http://localhost:3000");
-
-function validar(datos){
-    const{nombre, apellido, dni} = datos;
-    
-}

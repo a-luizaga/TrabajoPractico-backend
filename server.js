@@ -26,9 +26,8 @@ router.post('/',
         // Si hay un error en algunas de las validaciones o la cantidad de atributos del JSON es
         // mayor a 3 se devuelve codigo de respuesta 400
         const errors = validationResult(req);
-        
-        if(!errors.isEmpty() || Object.keys(req.body).length>3){
-            //return res.status(400).json({ errors: errors.array() });
+
+        if(!errors.isEmpty() || !validarKeysDeJson(Object.keys(req.body))){            
             return res.status(400).send();
         }
 
@@ -75,3 +74,16 @@ router.get('/', function(req, res){
 app.listen(3000);
 
 console.log("La aplicacion esta escuchando en http://localhost:3000");
+
+
+// Funciona para validar la cantidad de atributos del Json y el formato de las keys
+function validarKeysDeJson(array){   
+
+    if(array.length != 3)
+        return false;
+
+    if(array[0]!="nombre" || array[1]!="apellido" || array[2]!="dni"){
+        return false;
+    }
+    return true;
+}

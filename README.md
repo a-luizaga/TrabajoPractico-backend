@@ -91,3 +91,22 @@ Ejemplo de una estructura JSON:
 La key Content-type en un header se utiliza para indicar el formato del contenido del body, por ejemplo JSON o XML.
 
 
+## Ejercicio 3
+
+1. Se realiza un GET a la URL dada.  Se puede ver que el código de respuesta es 200, esto indica que la petición ha sido exitosa.  Y en la parte del “body” se puede ver datos de personas en formato JSON los cuales corresponden a la respuesta de la petición.
+
+![Imagen1](/screenshots/img1.png)
+
+
+2. Se realiza el POST a la URL dada.  En el “body” de la petición se completa con mis datos en formato JSON.    
+Se puede ver que la petición ha sido exitosa (código de respuesta: 200) y que en el “body” de la respuesta nos muestra un objeto con un atributo “name” y su valor.
+
+![Imagen2](/screenshots/img2.png)
+
+3. Las diferencias que notó es que el tamaño de la respuesta aumentó, en el primer GET era de 42.92KB y en el segundo GET es de 43KB.  Esto fue porque se agregó información al realizarse el POST del punto anterior.  
+Además se puede ver en la captura que mis datos han sido almacenados en el servidor ya que forman parte de la respuesta al realizarse el GET.
+
+![Imagen3](/screenshots/img3.png)
+
+
+

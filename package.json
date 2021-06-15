@@ -1,0 +1,20 @@
+{
+  "name": "tp-backend",
+  "version": "1.0.0",
+  "description": "TP VirtualDreams",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "server"
+  ],
+  "author": "Alexander Luizaga",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-validator": "^6.12.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
+  }
+}

@@ -23,14 +23,14 @@ router.post('/',
     /* FALTA VALIDAR LA CANTIDAD DE PARAMETROS */
     
     function(req, res){
-        // Si hay un error en algunas de las validaciones se devuelve un objetoError y el codigo de
-        // estado 400
+        // Si hay un error en algunas de las validaciones se devuelve codigo de respuesta 400
         const errors = validationResult(req);
         if(!errors.isEmpty()){
-            return res.status(400).json({ errors: errors.array() });
+            //return res.status(400).json({ errors: errors.array() });
+            return res.status(400).send();
         }
 
-    // Con los datos del Json validados se insertan en la BD realizando un POST a la URL dada:
+    // Con los datos del Json ya validados se insertan en la BD realizando un POST a la URL dada:
     // EL objeto "options" se utiliza para setear las opciones de la peticion POST
     // En el body se completa con los datos validados de la peticion anterior
     var options = {

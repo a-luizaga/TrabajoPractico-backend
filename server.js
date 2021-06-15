@@ -2,7 +2,8 @@ const express = require('express'); // incluimos el modulo express (modulos son 
 const router = express.Router(); // Router, importante para poder diferenciar las peticiones al maximo
 const rp = require('request-promise'); //Se agrega el modulo de request-promise para realizar el POST
 
-const { body, validationResult } = require('express-validator'); // Se incluye modulo validator
+// Se incluye modulo validator para realizar las validaciones del JSON
+const { body, validationResult } = require('express-validator'); 
 
 var app = express(); // Iniciamos express
 
@@ -12,20 +13,21 @@ app.use(express.urlencoded({extended: false}));
 app.use(router); // Agregamos router a nuestra aplicacion de express para separa los verbos
 
 router.post('/', 
-    // Validacion del Json    
-    body("nombre").not().isEmpty().withMessage("El campo nombre esta vacio"),
+    // Validacion del Json (no envio ningun mje acerca del error, solo devuelvo codigo de respuesta 400)     
+    body("nombre").not().isEmpty(),
     body("nombre").isString(),
-    body("apellido").not().isEmpty().withMessage("El campo apellido esta vacio"),
+    body("apellido").not().isEmpty(),
     body("apellido").isString(),
-    body("dni").isNumeric().withMessage("El DNI debe ser numerico"),
-    body("dni").isLength({max: 10}).withMessage("El DNI debe tener 10 caracteres como maximo"),
-    
-    /* FALTA VALIDAR LA CANTIDAD DE PARAMETROS */
+    body("dni").isNumeric(),
+    body("dni").isLength({max: 10}),   
     
     function(req, res){
-        // Si hay un error en algunas de las validaciones se devuelve codigo de respuesta 400
+        
+        // Si hay un error en algunas de las validaciones o la cantidad de atributos del JSON es
+        // mayor a 3 se devuelve codigo de respuesta 400
         const errors = validationResult(req);
-        if(!errors.isEmpty()){
+        
+        if(!errors.isEmpty() || Object.keys(req.body).length>3){
             //return res.status(400).json({ errors: errors.array() });
             return res.status(400).send();
         }

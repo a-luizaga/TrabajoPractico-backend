@@ -58,7 +58,11 @@ Valores posibles:
 
      5XX: indica errores del lado de servidor.
 
-6.
+
+6. La data en un GET se puede enviar a través de la URL, por ejemplo cuando se utiliza la queryString al solicitar un producto, se indica como key “id” y como value “2”, entonces el servidor recibe estos datos y devuelve como respuesta el producto con id=2 al cliente.
+ 
+	La data en un POST se puede enviar a través de un formulario, de esta manera los datos de este se almacenan en el servidor.  También se pueden enviar data utilizando la estructura JSON.
+
 
 7. El verbo http que utiliza el navegador cuando se accede a una página es el GET.
  

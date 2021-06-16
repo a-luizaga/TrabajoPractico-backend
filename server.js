@@ -72,7 +72,7 @@ router.get('/', function(req, res){
     res.status(200).sendFile(path.join(__dirname+"/crearPersonas.html"));    
 });
 
-// La app eutiliza el puerto 3000 para escuchar las peticiones
+// Se configura la app para que utilice el puerto 3000 para escuchar las peticiones
 app.listen(3000);
 
 console.log("La aplicacion esta escuchando en http://localhost:3000");

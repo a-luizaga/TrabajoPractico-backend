@@ -5,7 +5,7 @@
 1. Se debe abrir la terminal o simbolo de sistema ubicandose en el directorio raiz del proyecto.
 2. Ejecutar el siguiente comando para instalar las dependencias del proyecto:
      "npm install"
-3. Una vez que se instalaron las dependecias ejecutar el siguiente comando para correr el programa:
+3. Una vez que se instalaron las dependencias ejecutar el siguiente comando para correr el programa:
     "node server.js"
 
 NOTA: el programa utiliza el puerto 3000 para escuchar las peticiones.
